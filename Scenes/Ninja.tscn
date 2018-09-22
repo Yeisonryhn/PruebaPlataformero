@@ -1,0 +1,121 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Scripts/Ninja.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Ninja/Idle__000.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Ninja/Idle__001.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Ninja/Idle__002.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Ninja/Idle__003.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Ninja/Idle__004.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Ninja/Idle__005.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Ninja/Idle__006.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Ninja/Idle__007.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Ninja/Idle__008.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Ninja/Idle__009.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Ninja/Jump__000.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Ninja/Jump__001.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Ninja/Jump__002.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Ninja/Jump__003.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Ninja/Jump__004.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Ninja/Jump__005.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Ninja/Jump__006.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Ninja/Jump__007.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Ninja/Jump__008.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Ninja/Jump__009.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Ninja/Run__000.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Ninja/Run__001.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Ninja/Run__002.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Ninja/Run__003.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Ninja/Run__004.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Ninja/Run__005.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Ninja/Run__006.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Ninja/Run__007.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Ninja/Run__008.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Ninja/Run__009.png" type="Texture" id=31]
+[ext_resource path="res://Sounds/pasos.ogg" type="AudioStream" id=32]
+[ext_resource path="res://Sounds/ball-dragon-gt-jump.ogg" type="AudioStream" id=33]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "run",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 17.4168, 32.9474 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+position = Vector2( 239.409, 406.381 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+gravedad = 1200
+velocidad_correr = 10
+velocidad_salto = -600
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+animation = "jump"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+shape = SubResource( 2 )
+
+[node name="TimerJump" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Pasos" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 32 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Salto" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 33 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="timeout" from="TimerJump" to="." method="_on_TimerJump_timeout"]
+
+

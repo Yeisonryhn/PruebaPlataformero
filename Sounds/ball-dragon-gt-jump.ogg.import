@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ball-dragon-gt-jump.ogg-34b9256ed6f357630a3f05fba6cc9102.oggstr"
+
+[deps]
+
+source_file="res://Sounds/ball-dragon-gt-jump.ogg"
+dest_files=[ "res://.import/ball-dragon-gt-jump.ogg-34b9256ed6f357630a3f05fba6cc9102.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
