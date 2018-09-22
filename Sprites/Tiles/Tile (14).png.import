@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tile (14).png-fbed97cc0aec220a46a627343c118119.stex"
+path="res://.import/Tile (14).png-f61f77716f89c3da5d889aa9740e5dbe.stex"
 
 [deps]
 
-source_file="res://Scripts/Tiles/Tile (14).png"
-dest_files=[ "res://.import/Tile (14).png-fbed97cc0aec220a46a627343c118119.stex" ]
+source_file="res://Sprites/Tiles/Tile (14).png"
+dest_files=[ "res://.import/Tile (14).png-f61f77716f89c3da5d889aa9740e5dbe.stex" ]
 
 [params]
 

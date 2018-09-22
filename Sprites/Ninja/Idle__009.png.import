@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle__009.png-99fb98c2a4a341b48dee6e38c876bf3f.stex"
+path="res://.import/Idle__009.png-e0cce02a70ce956ec126b178b77e1e74.stex"
 
 [deps]
 
-source_file="res://Scripts/Ninja/Idle__009.png"
-dest_files=[ "res://.import/Idle__009.png-99fb98c2a4a341b48dee6e38c876bf3f.stex" ]
+source_file="res://Sprites/Ninja/Idle__009.png"
+dest_files=[ "res://.import/Idle__009.png-e0cce02a70ce956ec126b178b77e1e74.stex" ]
 
 [params]
 
